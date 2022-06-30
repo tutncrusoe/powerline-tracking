@@ -2,6 +2,10 @@
 
 Link Repo: https://github.com/TunyTrinh/TensorRT-Inference
 
+Part 1: Training
+Part 2: TensorRT-Inference
+Part 3: Inference
+
 ```
 ├── README.md
 ├── Picture

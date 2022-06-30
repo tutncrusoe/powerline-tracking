@@ -2,6 +2,10 @@
 
 Link repo: https://rtgit.rta.vn/rtr_huylda/powerline-tracking
 
+Part 1: Training
+Part 2: TensorRT-Inference
+Part 3: Inference
+
 <p>This repository contains the code used to train and evaluate P-DroNet based on PyTorch.</p>
 
 ## Model
