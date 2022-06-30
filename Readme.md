@@ -6,13 +6,13 @@ Link repo: https://rtgit.rta.vn/rtr_huylda/powerline-tracking
 
 ## Model
 
-![architecture](./imgs/architecture.png)
+![architecture](./Training/imgs/architecture.png)
 
 ## Data
 
 <p>In order to learn tracking angles, Unreal Engine dataset has been used. We additionally recorded an virtual pole dataset to learn the angle of wire on powerline by riding a drone around the the transmitter power in Real-time Robotics Viet Nam company.</p>
 
-![IMG01_0502](./imgs/IMG01_0502.png)
+![IMG01_0502](./Training/imgs/IMG01_0502.png)
 
 ## Software requirements
 
