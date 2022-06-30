@@ -15,13 +15,13 @@ Link Repo: https://github.com/TunyTrinh/TensorRT-Inference
 ├── Picture
 ├── .git
 ├── install_pycuda.sh
-├── h52onnx.py
+├── pth2onnx.py
 ├── demo_inference_enigne_PDronet.py        Demo inference engine TensorRT
 ├── demo_inference_enigne_multithread.py
 ├── model
 │   ├── dronet.onnx
 │   ├── dronet.trt
-│   ├── dronet.h5
+│   ├── dronet.pth
 
 ```
 
@@ -78,7 +78,7 @@ Visualizing your Neural Network with Netron
 
 <br></br>
 
-## **Để Inference model Dronet trên TensorRT ta làm theo các bước sau:**
+## **Để Inference model DroNet trên TensorRT ta làm theo các bước sau:**
 
 - Step 1: Convert model to onnx
 - Step 2: Convert model to engine TensorRT
@@ -90,9 +90,9 @@ Visualizing your Neural Network with Netron
 
 ## **How to convert Pytorch model to onnx**
 
-**In this tutorial I will using .h5 model for Dronet**
+**In this tutorial I will using .pth model for Dronet**
 
-- ### **Step 1**: Load your model with pytorch
+- ### **Step 1**: Load your [model](/Training/models/) with PyTorch
 
 ```
 import torch
@@ -353,7 +353,6 @@ torch.onnx.export(torch_model,               # model being run
 
 ## **Inference Dronet with TensorRT**
 
-- Clone github [Dronet Pytorch](https://github.com/peasant98/Dronet-Pytorch)
 - Copy folder **onnx_tensorrt** in folder onnx_tesorrt to convert onnx to tensorrt engine
 - This is new contruction below:
 
@@ -371,27 +370,8 @@ torch.onnx.export(torch_model,               # model being run
 │   └── tensorrt_engine.py
 ```
 
-- ### Dronet-Pytorch/dronet_trt.py:
-
-> This function will create engine TensorRT model
-
 ```
-def load_model(path, shape):
-    model = onnx.load(path)
-    engine = backend.prepare(model, device='CUDA:0')
-    input_data = np.random.random(size=shape).astype(np.float32)
-    # return
-    output_data = engine.run(input_data)
-    print(output_data['steer'])
-    print(output_data)
-
-load_model('dronet.onnx', (1,3,224,224))
-```
-
-> You can download model dronet from [here](https://github.com/peasant98/Dronet-Pytorch/blob/master/dronet.onnx) trên github.
-
-```
-input_data = np.random.random(size=(1,3,224,224)).astype(np.float32)
+input_data = np.random.random(size=(1,1,200,200)).astype(np.float32)
 ```
 
 <div align="center">
@@ -414,7 +394,7 @@ input_data = np.random.random(size=(1,3,224,224)).astype(np.float32)
 
 ---
 
-## **Example Inference Tensorrt python for image**
+## **Example Inference TensorRT Python for image**
 
 ```
 import onnx
@@ -489,7 +469,7 @@ ONNX models can also be converted to human-readable text:
 ONNX models can also be optimized by ONNX's optimization libraries (added by [dsandler](https://gitlab-master.nvidia.com/dsandler)).
 To optimize an ONNX model and output a new one use `-m` to specify the output model name and `-O` to specify a semicolon-separated list of optimization passes to apply:
 
-    onnx2trt my_model.onnx -O "pass_1;pass_2;pass_3" -m my_model_optimized.onnx
+    onnx2trt my_model.onnx -O -m my_model_optimized.onnx
 
 See more all available optimization passes by running:
 

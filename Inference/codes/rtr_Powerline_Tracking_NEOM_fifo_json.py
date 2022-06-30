@@ -73,20 +73,6 @@ class TrtModel():
 		
 		self.ipc_fifo_name = ipc_fifo_name
 
-		# try:
-		# 	with open(self.ipc_fifo_name, 'w', buffering=1) as f:
-		# 		f.write('Created pipe')
-		# 		print('Created pipe')
-		# except:
-		# 	print('No Connection')
-		# 	self.ctx.pop()
-		# 	del self.ctx
-		# 	del self.context
-		# 	del self.engine
-		# 	del self.runtime
-		# 	sys.exit()
-
-
 	@staticmethod
 	def load_engine(trt_runtime, engine_path):
 		trt.init_libnvinfer_plugins(None, "")             
@@ -117,7 +103,6 @@ class TrtModel():
 
 		return inputs, outputs, bindings, stream
 
-
 	def __call__(self,x:np.ndarray,batch_size=2):
 		x = x.astype(self.dtype)
 		np.copyto(self.inputs[0].host,x.ravel())
@@ -143,7 +128,7 @@ class TrtModel():
 		t1=0
 		t2=0
 		number = 0
-		dir = './images/'
+		dir = './images/' // check one image saved
 		self.cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER) # Use Camera
 		theta_k_1 = 0
 		try:
