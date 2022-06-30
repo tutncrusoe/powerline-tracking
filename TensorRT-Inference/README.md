@@ -2,11 +2,11 @@
 
 Link Repo: https://github.com/TunyTrinh/TensorRT-Inference
 
-- Part 1: Training
+- Part 1: [Training](/Training/)
 
-- Part 2: TensorRT-Inference
+- Part 2: [TensorRT](/TensorRT-Inference/)
 
-- Part 3: Inference
+- Part 3: [Inference](/Inference)
 
 # Part 2: TensorRT-Inference
 
