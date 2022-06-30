@@ -128,7 +128,7 @@ class TrtModel():
 		t1=0
 		t2=0
 		number = 0
-		dir = './images/' // check one image saved
+		dir = './images/' # check one image saved
 		self.cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER) # Use Camera
 		theta_k_1 = 0
 		try:
